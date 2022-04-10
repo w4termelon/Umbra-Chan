@@ -41,6 +41,7 @@ namespace Umbra_C.utils
             var request = new RestRequest();
             var response =  await client.GetAsync<XIVCharakter>(request);
             if(response == null) return;
+            if(response.Mounts == null) throw new ArgumentNullException();
             foreach(var id in response.Mounts.IDs)
             {
                 var mount = allMounts.Find(am => am.Id == id);

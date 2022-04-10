@@ -1,9 +1,5 @@
 using Discord;
 using Discord.Interactions;
-using Umbra_C.Attributes;
-using Umbra_C.Enums;
-using System;
-using System.Threading.Tasks;
 
 namespace Umbra_C.Modules
 {

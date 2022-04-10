@@ -61,11 +61,23 @@ namespace Umbra_C.Modules
             }
             catch(HttpRequestException e)
             {
-                await RespondAsync(targetUser.Username + " ist auf ffxivcollect.com auf privat gestellt!", ephemeral: true);
+                await RespondAsync(targetUser.Username + " ist auf https://ffxivcollect.com auf privat gestellt!", ephemeral: true);
             }
             catch(Exception e)
             {
-                await RespondAsync("Ein Fehler ist unterlaufen!", ephemeral: true);
+                var msg = "";
+                switch(e)
+                {
+                    case ArgumentNullException:
+                    case NullReferenceException:
+                    await RespondAsync("1 .Suche und öffne dein Charakter: https://ffxivcollect.com/characters/search \n 2. Führe anschließend `/update` wieder aus.", ephemeral: true);
+                    break;
+                    default:
+                    await RespondAsync("Ein Fehler ist aufgetreten!", ephemeral: true);
+                    break;
+                }
+                
+                
             }
             
         }
